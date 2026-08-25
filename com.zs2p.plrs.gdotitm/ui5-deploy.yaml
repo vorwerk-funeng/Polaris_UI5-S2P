@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: com.zs2p.plrs.gdotitm
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: Polaris_Fiori_Apps_D31
+          url: http://d31polarishttps:8443
+          client: '010'
+        app:
+          name: ZS2P_FE_GDOTITM
+          package: ZPLRS_S2P
+          transport: D31K929748
+        exclude:
+          - /test/

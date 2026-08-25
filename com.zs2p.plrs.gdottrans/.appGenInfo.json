@@ -1,0 +1,33 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Jun 10 2026 17:03:12 GMT+0000 (Coordinated Universal Time)",
+    "generatorPlatform": "SAP Business Application Studio",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "http://d31polarishttps:8443/sap/opu/odata4/sap/zapi_sb_gdot_prd/srvd/sap/zapi_sd_gdot_prd/0001/",
+    "appName": "com.zs2p.plrs.gdottrans",
+    "appTitle": "GreenDot Transport Packaging",
+    "appDescription": "GreenDot Transport Packaging",
+    "appNamespace": "",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.120.14",
+    "enableEslint": true,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.25.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "TP_Product"
+      },
+      {
+        "type": "Navigation Entity",
+        "value": "None"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

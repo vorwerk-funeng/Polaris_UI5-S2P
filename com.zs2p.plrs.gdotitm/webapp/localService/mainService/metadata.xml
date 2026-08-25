@@ -1,0 +1,1667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="TP_ListType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BOMProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMItemQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMItemQtyUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMweightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMGrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+            </EntityType>
+            <EntityType Name="TP_ComponentType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BOMProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMItemQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMItemQtyUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMweightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMGrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <NavigationProperty Name="_Product" Type="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.TP_ProductType" Nullable="false" Partner="_Component">
+                    <ReferentialConstraint Property="Product" ReferencedProperty="Product"/>
+                    <ReferentialConstraint Property="Plant" ReferencedProperty="Plant"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SP_ListType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BOMProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMItemQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMItemQtyUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMweightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMGrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+            </EntityType>
+            <EntityType Name="SP_ProductType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="WeightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="GrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="GrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="GrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_Component" Type="Collection(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ComponentType)" Partner="_Product">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="TP_ProductType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="WeightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="GrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="GrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="GrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <NavigationProperty Name="_Component" Type="Collection(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.TP_ComponentType)" Partner="_Product">
+                    <OnDelete Action="Cascade"/>
+                </NavigationProperty>
+            </EntityType>
+            <EntityType Name="SP_ComponentType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Component"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Component" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMProductName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="BOMProductGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="BOMItemQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMItemQtyUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMweightUnitG" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="BOMGrossWeight1" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight2" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOMGrossWeight3" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <NavigationProperty Name="_Product" Type="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType" Nullable="false" Partner="_Component">
+                    <ReferentialConstraint Property="Product" ReferencedProperty="Product"/>
+                    <ReferentialConstraint Property="Plant" ReferencedProperty="Plant"/>
+                </NavigationProperty>
+            </EntityType>
+            <ComplexType Name="SP_ProductOperationControl">
+                <Property Name="updateSelected" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="updateSelected" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType" Nullable="true"/>
+            </Action>
+            <Action Name="updateOnDays" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType)" Nullable="false"/>
+                <Parameter Name="ChangeDays" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="SP_Component" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ComponentType">
+                    <NavigationPropertyBinding Path="_Product" Target="SP_Product"/>
+                </EntitySet>
+                <EntitySet Name="SP_List" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ListType"/>
+                <EntitySet Name="SP_Product" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType">
+                    <NavigationPropertyBinding Path="_Component" Target="SP_Component"/>
+                </EntitySet>
+                <EntitySet Name="TP_Component" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.TP_ComponentType">
+                    <NavigationPropertyBinding Path="_Product" Target="TP_Product"/>
+                </EntitySet>
+                <EntitySet Name="TP_List" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.TP_ListType"/>
+                <EntitySet Name="TP_Product" EntityType="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.TP_ProductType">
+                    <NavigationPropertyBinding Path="_Component" Target="TP_Component"/>
+                </EntitySet>
+            </EntityContainer>
+            <Annotations Target="SAP__self.TP_ListType/Product">
+                <Annotation Term="SAP__common.Label" String="Product"/>
+                <Annotation Term="SAP__common.Text" Path="ProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/Component">
+                <Annotation Term="SAP__common.Label" String="Component"/>
+                <Annotation Term="SAP__common.Text" Path="BOMProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/ProductName">
+                <Annotation Term="SAP__common.Label" String="Product Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/ProductGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMProductName">
+                <Annotation Term="SAP__common.Label" String="Component Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMProductGroup">
+                <Annotation Term="SAP__common.Label" String="Component Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMItemQty">
+                <Annotation Term="SAP__common.Label" String="Component Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMItemQtyUnit"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMItemQtyUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Component UoM"/>
+                <Annotation Term="SAP__common.Heading" String="UoM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMweightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMGrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMGrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType/BOMGrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ListType">
+                <Annotation Term="SAP__common.Label" String="Proj. Transport-Packaging Item"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Component Details"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Transport-Packaging Item"/>
+                        <PropertyValue Property="TypeNamePlural" String="Transport-Packaging Item"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/TP_List">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMItemQty"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/Component">
+                <Annotation Term="SAP__common.Label" String="Component"/>
+                <Annotation Term="SAP__common.Text" Path="BOMProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/ProductGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMProductName">
+                <Annotation Term="SAP__common.Label" String="Component Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMProductGroup">
+                <Annotation Term="SAP__common.Label" String="Component Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMItemQty">
+                <Annotation Term="SAP__common.Label" String="Component Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMItemQtyUnit"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMItemQtyUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Component UoM"/>
+                <Annotation Term="SAP__common.Heading" String="UoM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMweightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMGrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMGrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType/BOMGrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/TP_Component">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Product"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMItemQty"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ComponentType">
+                <Annotation Term="SAP__common.Label" String="Proj. Transport-Packaging Component"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Component Details"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Transport-Packaging List"/>
+                        <PropertyValue Property="TypeNamePlural" String="Components"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="_Product/Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="_Product/ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/Product">
+                <Annotation Term="SAP__common.Label" String="Product"/>
+                <Annotation Term="SAP__common.Text" Path="ProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/Component">
+                <Annotation Term="SAP__common.Label" String="Component"/>
+                <Annotation Term="SAP__common.Text" Path="BOMProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/ProductName">
+                <Annotation Term="SAP__common.Label" String="Product Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/ProductGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMProductName">
+                <Annotation Term="SAP__common.Label" String="Component Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMProductGroup">
+                <Annotation Term="SAP__common.Label" String="Component Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMItemQty">
+                <Annotation Term="SAP__common.Label" String="Component Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMItemQtyUnit"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMItemQtyUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Component UoM"/>
+                <Annotation Term="SAP__common.Heading" String="UoM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMweightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMGrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMGrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType/BOMGrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ListType">
+                <Annotation Term="SAP__common.Label" String="Proj. Selling-Packaging Item"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Component Details"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Selling-Packaging Item"/>
+                        <PropertyValue Property="TypeNamePlural" String="Selling-Packaging Item"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/SP_List">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMItemQty"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/Product">
+                <Annotation Term="SAP__common.Label" String="Product"/>
+                <Annotation Term="SAP__common.Text" Path="ProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zs2p_i_productvh/0001;ps='srvd-zapi_sd_gdot_prd-0001';va='com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.et-zs2p_p_gd_sp.product'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/Plant">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/ProductGroup">
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/ProductName">
+                <Annotation Term="SAP__common.Label" String="Product Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/WeightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/GrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/GrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/GrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/_Component">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/SP_Product">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Component"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.updateSelected(SAP__self.SP_ProductType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/updateSelected"/>
+            </Annotations>
+            <Annotations Target="SAP__self.updateOnDays(Collection(SAP__self.SP_ProductType))/ChangeDays">
+                <Annotation Term="SAP__common.Label" String="Number of Days"/>
+                <Annotation Term="SAP__common.QuickInfo" String="General work field with a length of 3 spaces"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType">
+                <Annotation Term="SAP__common.Label" String="Proj. Selling-Packaging Product"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Product Details"/>
+                            <PropertyValue Property="ID" String="Hdr"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="Item"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Component/@SAP__UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Selling-Packaging List"/>
+                        <PropertyValue Property="TypeNamePlural" String="Selling-Packaging List"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Changed Material Days"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.updateOnDays(Collection(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType))"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Update Selected Material"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.updateSelected(com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.SP_ProductType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/Isolated"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/Product">
+                <Annotation Term="SAP__common.Label" String="Product"/>
+                <Annotation Term="SAP__common.Text" Path="ProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zs2p_i_productvh/0001;ps='srvd-zapi_sd_gdot_prd-0001';va='com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001.et-zs2p_p_gd_tp.product'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/ProductGroup">
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/ProductName">
+                <Annotation Term="SAP__common.Label" String="Product Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/WeightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/GrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/GrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/GrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="WeightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType/_Component">
+                <Annotation Term="SAP__common.Composition"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/TP_Product">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Component"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossWeight1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossWeight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GrossWeight3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.TP_ProductType">
+                <Annotation Term="SAP__common.Label" String="Proj. Transport-Packaging Product"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Product Details"/>
+                            <PropertyValue Property="ID" String="Hdr"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="Item"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Component/@SAP__UI.LineItem"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Transport-Packaging List"/>
+                        <PropertyValue Property="TypeNamePlural" String="Transport-Packaging List"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Product"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Product</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/Product">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/Plant">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/Component">
+                <Annotation Term="SAP__common.Label" String="Component"/>
+                <Annotation Term="SAP__common.Text" Path="BOMProductName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextSeparate"/>
+                </Annotation>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/ProductGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Product Group"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMProductName">
+                <Annotation Term="SAP__common.Label" String="Component Name"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMProductGroup">
+                <Annotation Term="SAP__common.Label" String="Component Group"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Prd Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMItemQty">
+                <Annotation Term="SAP__common.Label" String="Component Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMItemQtyUnit"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMItemQtyUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Component UoM"/>
+                <Annotation Term="SAP__common.Heading" String="UoM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMweightUnitG">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMGrossWeight1">
+                <Annotation Term="SAP__common.Label" String="Paper/Cardboard"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMGrossWeight2">
+                <Annotation Term="SAP__common.Label" String="Foils/Containers/Foams"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType/BOMGrossWeight3">
+                <Annotation Term="SAP__common.Label" String="Composite Materials"/>
+                <Annotation Term="SAP__measures.Unit" Path="BOMweightUnitG"/>
+                <Annotation Term="SAP__common.Heading" String="Gross Weight"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Gross Weight"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/SP_Component">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Product"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMItemQty"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BOMGrossWeight3"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ComponentType">
+                <Annotation Term="SAP__common.Label" String="Proj. Selling-Packaging Component"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Component Details"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Selling-Packaging List"/>
+                        <PropertyValue Property="TypeNamePlural" String="Components"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="_Product/Product"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="_Product/ProductName"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Component"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMProductGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMItemQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOMGrossWeight3"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductType/__OperationControl/updateSelected">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SP_ProductOperationControl/updateSelected">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,728 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../../srvd/sap/zapi_sd_gdot_prd/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zapi_sd_gdot_prd.v0001" Alias="SAP__ParentService"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd_f4.i_productplantvh.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="I_ProductPlantVHType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PurchasingGroup" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CountryOfOrigin" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="RegionOfOrigin" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProductionInvtryManagedLoc" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProfileCode" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ProfileCode_Text" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="ProfileValidityStartDate" Type="Edm.Date"/>
+                <Property Name="AvailabilityCheckType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="FiscalYearVariant" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="FiscalYearVariant_Text" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="PeriodType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ProfitCenter" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Commodity" Type="Edm.String" Nullable="false" MaxLength="17"/>
+                <Property Name="GoodsReceiptDuration" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="MaintenanceStatusName" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="IsMarkedForDeletion" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="MRPType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="MRPResponsible" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ABCIndicator" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="MinimumLotSizeQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MaximumLotSizeQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="FixedLotSizeQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ConsumptionTaxCtrlCode" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="IsCoProduct" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="ProductIsConfigurable" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ConfigurableProduct" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ConfigurableProduct_Text" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="StockDeterminationGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="StockInTransferQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="StockInTransitQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="HasPostToInspectionStock" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsBatchManagementRequired" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="SerialNumberProfile" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="IsNegativeStockAllowed" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="GoodsReceiptBlockedStockQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="HasConsignmentCtrl" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="FiscalYearCurrentPeriod" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FiscalMonthCurrentPeriod" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="IsPurgAcrossPurgGroup" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="IsInternalBatchManaged" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="ProductCFOPCategory" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="UnderDelivToleranceLimit" Type="Edm.Decimal" Nullable="false" Precision="3" Scale="1"/>
+                <Property Name="OverDelivToleranceLimit" Type="Edm.Decimal" Nullable="false" Precision="3" Scale="1"/>
+                <Property Name="ProcurementType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="SpecialProcurementType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ProductionSchedulingProfile" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="ProductionSupervisor" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SafetyStockQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="GoodsIssueUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="GoodsIssueUnit_Text" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="SourceOfSupplyCategory" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ConsumptionReferenceProduct" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="ConsumptionReferencePlant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ConsumptionRefUsageEndDate" Type="Edm.Date"/>
+                <Property Name="ConsumptionQtyMultiplier" Type="Edm.Decimal" Nullable="false" Precision="4" Scale="2"/>
+                <Property Name="ProductUnitGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistrCntrDistributionProfile" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ConsignmentControl" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="GoodIssueProcessingDays" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="PlannedDeliveryDurationInDays" Type="Edm.Decimal" Nullable="false" Precision="3"/>
+                <Property Name="IsActiveEntity" Type="Edm.Boolean" Nullable="false"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="I_ProductPlantVH" EntityType="com.sap.gateway.srvd_f4.i_productplantvh.v0001.I_ProductPlantVHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/Product">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/PurchasingGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Purchasing Group"/>
+                <Annotation Term="SAP__common.Heading" String="PGr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/CountryOfOrigin">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Cntry/Reg of Origin"/>
+                <Annotation Term="SAP__common.Heading" String="Orig"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Country/Region of Origin of Material (Non-Preferential Ori.)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/RegionOfOrigin">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Region of Origin"/>
+                <Annotation Term="SAP__common.Heading" String="ROr"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Region of Origin of Material (Non-Preferential Origin)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductionInvtryManagedLoc">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Storage Location"/>
+                <Annotation Term="SAP__common.Heading" String="Production Storage Location"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Issue Storage Location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProfileCode">
+                <Annotation Term="SAP__common.Text" Path="ProfileCode_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="P-S Mat. Status"/>
+                <Annotation Term="SAP__common.Heading" String="Plant-Specific Material Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant-Specific Material Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProfileCode_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Cross Plant Status Text"/>
+                <Annotation Term="SAP__common.Heading" String="Cross Plant Product Status Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/AvailabilityCheckType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Availability check"/>
+                <Annotation Term="SAP__common.Heading" String="Av"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Checking Group for Availability Check"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/FiscalYearVariant">
+                <Annotation Term="SAP__common.Text" Path="FiscalYearVariant_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Fiscal Year Variant"/>
+                <Annotation Term="SAP__common.Heading" String="FV"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/FiscalYearVariant_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Fiscal Year Variant Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of Fiscal Year Variant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/PeriodType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Period Indicator"/>
+                <Annotation Term="SAP__common.Heading" String="PI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProfitCenter">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Profit Center"/>
+                <Annotation Term="SAP__common.Heading" String="Profit Ctr"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/Commodity">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Commodity Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/MaintenanceStatusName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Maintenance Status"/>
+                <Annotation Term="SAP__common.Heading" String="Maint. Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/MRPType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="MRP Type"/>
+                <Annotation Term="SAP__common.Heading" String="Typ"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/MRPResponsible">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="MRP Controller"/>
+                <Annotation Term="SAP__common.Heading" String="MRPCn"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ABCIndicator">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="ABC Indicator"/>
+                <Annotation Term="SAP__common.Heading" String="ABC"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsumptionTaxCtrlCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Control Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Control code for consumption taxes in foreign trade"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductIsConfigurable">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="ConfigurableProduct"/>
+                <Annotation Term="SAP__common.Heading" String="Configurable prod"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Configurable Product"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConfigurableProduct">
+                <Annotation Term="SAP__common.Text" Path="ConfigurableProduct_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Conf. Material"/>
+                <Annotation Term="SAP__common.Heading" String="Configurable Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Configurable Material"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConfigurableProduct_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Product Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/StockDeterminationGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Stock Determ. Group"/>
+                <Annotation Term="SAP__common.Heading" String="Stock Determination Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Stock determination group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/SerialNumberProfile">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Serial No. Profile"/>
+                <Annotation Term="SAP__common.Heading" String="Profl."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Serial Number Profile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/HasConsignmentCtrl">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Consign.Control"/>
+                <Annotation Term="SAP__common.Heading" String="Consignment Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Consignment Control"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/FiscalYearCurrentPeriod">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/FiscalMonthCurrentPeriod">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductCFOPCategory">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Mat. CFOP category"/>
+                <Annotation Term="SAP__common.Heading" String="MC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material CFOP category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProcurementType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Procurement Type"/>
+                <Annotation Term="SAP__common.Heading" String="ProcType"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/SpecialProcurementType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Special Procurement"/>
+                <Annotation Term="SAP__common.Heading" String="Special Procurement Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Special Procurement Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductionSchedulingProfile">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Prod. Sched. Profile"/>
+                <Annotation Term="SAP__common.Heading" String="P.Prof"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Scheduling Profile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductionSupervisor">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Prodn Supervisor"/>
+                <Annotation Term="SAP__common.Heading" String="ProdS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/GoodsIssueUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Text" Path="GoodsIssueUnit_Text"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Issue"/>
+                <Annotation Term="SAP__common.Heading" String="UoI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/GoodsIssueUnit_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Meas. Unit Text"/>
+                <Annotation Term="SAP__common.Heading" String="Unit of Measurement Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Unit of Measurement Text (Maximum 30 Characters)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/SourceOfSupplyCategory">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Source of supply"/>
+                <Annotation Term="SAP__common.Heading" String="S"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Source of Supply"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsumptionReferenceProduct">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="RefMatl: consumption"/>
+                <Annotation Term="SAP__common.Heading" String="Consumable mat."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference material for consumption"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsumptionReferencePlant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="RefPlant:consumption"/>
+                <Annotation Term="SAP__common.Heading" String="CNPL"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference plant for consumption"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProductUnitGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Measure Grp"/>
+                <Annotation Term="SAP__common.Heading" String="UnGr"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Unit of Measure Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/DistrCntrDistributionProfile">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distr. profile"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution profile of material in plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsignmentControl">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Consign.Control"/>
+                <Annotation Term="SAP__common.Heading" String="Consignment Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Consignment Control"/>
+            </Annotations>
+            <Annotations Target="SAP__ParentService.ProductType/Plant">
+                <Annotation Term="SAP__common.ValueListMapping">
+                    <Record>
+                        <PropertyValue Property="Label" String="Product Plant Value Help"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProductPlantVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="SAP__common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PurchasingGroup"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="CountryOfOrigin"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RegionOfOrigin"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionInvtryManagedLoc"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProfileCode"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProfileCode_Text"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProfileValidityStartDate"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AvailabilityCheckType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FiscalYearVariant"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FiscalYearVariant_Text"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PeriodType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProfitCenter"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Commodity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GoodsReceiptDuration"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaintenanceStatusName"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsMarkedForDeletion"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MRPType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MRPResponsible"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ABCIndicator"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MinimumLotSizeQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaximumLotSizeQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FixedLotSizeQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsumptionTaxCtrlCode"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsCoProduct"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductIsConfigurable"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConfigurableProduct"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConfigurableProduct_Text"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StockDeterminationGroup"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StockInTransferQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="StockInTransitQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="HasPostToInspectionStock"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsBatchManagementRequired"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SerialNumberProfile"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsNegativeStockAllowed"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GoodsReceiptBlockedStockQty"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="HasConsignmentCtrl"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FiscalYearCurrentPeriod"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FiscalMonthCurrentPeriod"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsPurgAcrossPurgGroup"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsInternalBatchManaged"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductCFOPCategory"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="UnderDelivToleranceLimit"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OverDelivToleranceLimit"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProcurementType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SpecialProcurementType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionSchedulingProfile"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductionSupervisor"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SafetyStockQuantity"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GoodsIssueUnit"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GoodsIssueUnit_Text"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SourceOfSupplyCategory"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsumptionReferenceProduct"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsumptionReferencePlant"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsumptionRefUsageEndDate"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsumptionQtyMultiplier"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProductUnitGroup"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistrCntrDistributionProfile"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ConsignmentControl"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="GoodIssueProcessingDays"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlannedDeliveryDurationInDays"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="IsActiveEntity"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType">
+                <Annotation Term="SAP__common.Label" String="Product Plant Value Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_ProductPlantVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/OR SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group SAP__capabilities.SearchExpressions/phrase"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__core.OptimisticConcurrency">
+                    <Collection/>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="SAP__aggregation.RollupType/None"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="100"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="5000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ProfileValidityStartDate">
+                <Annotation Term="SAP__common.Label" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date from Which the Plant-Specific Material Status Is Valid"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/GoodsReceiptDuration">
+                <Annotation Term="SAP__common.Label" String="GR processing time"/>
+                <Annotation Term="SAP__common.Heading" String="GRT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods receipt processing time in days"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsMarkedForDeletion">
+                <Annotation Term="SAP__common.Label" String="DF at plant level"/>
+                <Annotation Term="SAP__common.Heading" String="Pl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Flag Material for Deletion at Plant Level"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/MinimumLotSizeQuantity">
+                <Annotation Term="SAP__common.Label" String="Minimum Lot Size"/>
+                <Annotation Term="SAP__common.Heading" String="Min. Lot Sze"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/MaximumLotSizeQuantity">
+                <Annotation Term="SAP__common.Label" String="Maximum Lot Size"/>
+                <Annotation Term="SAP__common.Heading" String="Max. Lot Size"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/FixedLotSizeQuantity">
+                <Annotation Term="SAP__common.Label" String="Fixed lot size"/>
+                <Annotation Term="SAP__common.Heading" String="Fix. lot size"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsCoProduct">
+                <Annotation Term="SAP__common.Label" String="Co-Product"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/HasPostToInspectionStock">
+                <Annotation Term="SAP__common.Label" String="Post to insp. stock"/>
+                <Annotation Term="SAP__common.Heading" String="I"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Has Post to Inspection Stock"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsBatchManagementRequired">
+                <Annotation Term="SAP__common.Label" String="Batch Mgmt Rqt(Plnt)"/>
+                <Annotation Term="SAP__common.Heading" String="BMR"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Management Requirement Indicator for Plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsNegativeStockAllowed">
+                <Annotation Term="SAP__common.Label" String="Neg. Stocks In Plant"/>
+                <Annotation Term="SAP__common.Heading" String="NS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Negative stocks allowed in plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsPurgAcrossPurgGroup">
+                <Annotation Term="SAP__common.Label" String="Across Purch.Group"/>
+                <Annotation Term="SAP__common.Heading" String="Purchasing Across Purchasing Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Purchasing Across Purchasing Group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsInternalBatchManaged">
+                <Annotation Term="SAP__common.Label" String="Batch Management"/>
+                <Annotation Term="SAP__common.Heading" String="B"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch management indicator (internal)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/UnderDelivToleranceLimit">
+                <Annotation Term="SAP__common.Label" String="Underdelivery Toler."/>
+                <Annotation Term="SAP__common.Heading" String="UTol"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Underdelivery Tolerance Limit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/OverDelivToleranceLimit">
+                <Annotation Term="SAP__common.Label" String="Overdelivery Toler."/>
+                <Annotation Term="SAP__common.Heading" String="OTol"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Overdelivery Tolerance Limit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/SafetyStockQuantity">
+                <Annotation Term="SAP__common.Label" String="Safety Stock"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsumptionRefUsageEndDate">
+                <Annotation Term="SAP__common.Label" String="Date to"/>
+                <Annotation Term="SAP__common.QuickInfo" String="To date of the material to be copied for consumption"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/ConsumptionQtyMultiplier">
+                <Annotation Term="SAP__common.Label" String="Multiplier"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Multiplier for reference material for consumption"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/GoodIssueProcessingDays">
+                <Annotation Term="SAP__common.Label" String="GI Proc. Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Goods Issue Processing Time in Days"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/PlannedDeliveryDurationInDays">
+                <Annotation Term="SAP__common.Label" String="Planned Deliv. Time"/>
+                <Annotation Term="SAP__common.Heading" String="PDT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Planned Delivery Time in Days"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductPlantVHType/IsActiveEntity">
+                <Annotation Term="SAP__common.Label" String="Is active"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Draft - Indicator - Is active document"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
