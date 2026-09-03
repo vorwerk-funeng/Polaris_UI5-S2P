@@ -19,7 +19,7 @@ builder:
           client: '010'
         app:
           name: ZS2P_FE_ICREFIL
-          description: Analysis of Changes in IC Refill
+          description: Analysis of Changes in IC Refill - Demo Change
           package: ZPLRS_S2P
           transport: D31K931417
         exclude:
